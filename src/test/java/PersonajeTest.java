@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class PersonajeTest {
@@ -12,6 +13,8 @@ public class PersonajeTest {
         // tip: ej.planets.obtenerTodos()
         // TODO comprueba que tu función devuelve el número correcto de elementos
         // tip: es 10
+
+        Assertions.assertEquals(10, ej.getPlanetas().length);
     }
 
     // TODO Haz la función en la clase Ejercicio6: obtenerMasPobladosQue(int poblacion)
