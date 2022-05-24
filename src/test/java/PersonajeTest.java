@@ -17,17 +17,55 @@ public class PersonajeTest {
         Assertions.assertEquals(10, ej.getPlanetas().length);
     }
 
-    // TODO Haz la función en la clase Ejercicio6: obtenerMasPobladosQue(int poblacion)
-    //  nos devuelve una lista de aquellos planetas que tienen más población que el integer pasado por parámetro
-    // TODO Haz todos los test que sean necesarios.
-    // tip: Si el planeta tiene una población indeterminada, no debe mostrarse
+    @Test
+    public void test2(){
+        // TODO Haz la función en la clase Ejercicio6: obtenerMasPobladosQue(long poblacion)
+        //  nos devuelve una lista de aquellos planetas que tienen más población que el long pasado por parámetro
+        // TODO Haz todos los test que sean necesarios.
+        // tip: Si el planeta tiene una población indeterminada, no debe mostrarse
+        //caso menos poblacion que todos
 
+        Assertions.assertEquals(8, ej.obtenerMasPobladosQue(10).length);
+    }
+
+    @Test
+    public void test3(){
+        // obtenerMasPbladosQue (caso medio)
+
+        Assertions.assertEquals(7, ej.obtenerMasPobladosQue(1001).length);
+    }
+
+    @Test
+    public void test4(){
+        // obtenerMasPbladosQue (caso mas poblacion que todos)
+
+        Assertions.assertEquals(0, ej.obtenerMasPobladosQue(10000000000000L).length);
+    }
 
     // TODO Haz la función en la clase Ejercicio6: obtenerPlanetasConTerreno(String terreno)
     //  nos devuelve una lista de aquellos planetas que tienen terrenos que se llamen como el string.
     // tip: Algunos terrenos disponibles: forests, mountains, hills, etc.
     // TODO Haz todos los test que sean necesarios.
     // tip: Si el planeta tiene una población indeterminada, no debe mostrarse
+
+    @Test
+    public void test5(){
+        //Test normal de la funcion
+        Assertions.assertEquals(4, ej.obtenerPlanetasConTerreno("mountains").length);
+    }
+
+    @Test
+    public void test6(){
+        //Test cadena vacia
+        Assertions.assertEquals(0, ej.obtenerPlanetasConTerreno("").length);
+    }
+
+    @Test
+    public void test7(){
+        //Test con terreno no existente
+        Assertions.assertEquals(0, ej.obtenerPlanetasConTerreno("pacolandia").length);
+    }
+
 
 
     // TODO Haz la función en la clase Ejercicio6: obtenerPlanetasResidentes(int residentes, String nombre)
