@@ -73,4 +73,25 @@ public class PersonajeTest {
     // tip: cada residente es represetnado por una url, solo tienes que contar. Ej si residents=[https://swapi.dev/api/people/3/, https://swapi.dev/api/people/21/] el resultado será 2
     // TODO Haz todos los test que sean necesarios.
     // tip: Si el planeta tiene una población indeterminada, no debe mostrarse
+
+    @Test
+    public void test8(){
+        //Comprobacion de funcion normal
+
+        Assertions.assertEquals(2, ej.obtenerPlanetasResidentes(5, "oo").length);
+    }
+
+    @Test
+    public void test9(){
+        //Comprobacion con residente 0 y cadena vacia
+
+        Assertions.assertEquals(7, ej.obtenerPlanetasResidentes(0, "").length);
+    }
+
+    @Test
+    public void test10(){
+        //Comprobacion con cadena igual que el nombre de un planeta con poblacion unknown
+
+        Assertions.assertEquals(0, ej.obtenerPlanetasResidentes(0, "Dagobah").length);
+    }
 }

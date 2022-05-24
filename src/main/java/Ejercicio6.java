@@ -34,22 +34,32 @@ public class Ejercicio6 {
         short cont=0;
         short i;
         boolean encontrado;
-        String cadenaAux;
-        int cuentaTokens;
         for (Planet planeta : planets.obtenerTodos()){
-            StringTokenizer token = new StringTokenizer(planeta.getTerrain(), ", ");
-            cuentaTokens=token.countTokens();
+            String[] array = planeta.getTerrain().split(", ");
             i=0;
             encontrado=false;
             do {
-                cadenaAux=token.nextToken();
-                if (cadenaAux.equalsIgnoreCase(terreno)){
+                if (array[i].equals(terreno)){
                     planetas[cont]=planeta;
                     cont++;
                     encontrado=true;
                 }
                 i++;
-            }while (i<cuentaTokens && !encontrado);
+            }while (i<array.length && !encontrado);
+        }
+        return getArraySinNulos(planetas, cont);
+    }
+
+    public Planet[] obtenerPlanetasResidentes(int residentes, String nombre){
+        Planet[] planetas = new Planet[planets.obtenerTodos().length];
+        short cont=0;
+        for (Planet planeta : planets.obtenerTodos()){
+            if (!planeta.getPopulation().equals("unknown")){
+                if (planeta.getResidents().length>residentes && planeta.getName().contains(nombre)){
+                    planetas[cont]=planeta;
+                    cont++;
+                }
+            }
         }
         return getArraySinNulos(planetas, cont);
     }
